@@ -24,9 +24,9 @@ const routes = [
   },
 ];
 
-export const Routes = () => (
+export const Routes = ({isLoading, user}) => (
   <Router>
-    <NavBar />
+    <NavBar user={user} />
     <Switch>
       {routes.map((route, index) => (
         <Route key={index} path={route.path} exact={route.exact}>
