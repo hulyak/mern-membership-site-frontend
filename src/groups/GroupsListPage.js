@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { GroupsList } from './GroupsList';
 import { GroupsListItem } from './GroupsListItem';
 import { MyGroupsListItem } from './MyGroupsListItem';
-// custom hook
+// custom hooks
 import { useGroups } from './useGroups';
 import { useUserGroups } from './useUserGroups';
 
 export const GroupsListPage = () => {
   // load from server with custom hook, mock out UI
   const { isLoading: isLoadingAllGroups, groups: allGroups } = useGroups();
-  const {isLoading: isLoadingUserGroups, userGroups } = useUserGroups();
+  const { isLoading: isLoadingUserGroups, userGroups } = useUserGroups();
 
   const notUserGroups = allGroups.filter((group) =>
     userGroups.every((userGroup) => userGroup.id !== group.id)

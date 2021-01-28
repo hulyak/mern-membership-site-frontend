@@ -1,7 +1,13 @@
 import React from 'react';
+import { postWithCredentials } from '../data';
 
 // groups that user does not belong to
 export const GroupsListItem = ({ group }) => {
+  const requestToJoin = async () => {
+    await postWithCredentials(`/groups/${group.id}/request`);
+    alert('Your request has been submitted');
+  };
+
   return (
     <div className="list-item">
       <div className="list-item-data">
@@ -9,7 +15,7 @@ export const GroupsListItem = ({ group }) => {
         <p>Owned by: {group.owner.fullName} </p>
         <p>{group.members.length} members</p>
       </div>
-      <button>Ask to Join</button>
+      <button onClick={requestToJoin}>Ask to Join</button>
     </div>
   );
 };
