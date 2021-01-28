@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 
+// fetch all the groups
 export const useGroups = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [groups, setGroups] = useState([]);
