@@ -4,7 +4,7 @@ import { postWithCredentials } from '../data';
 // groups that user does not belong to
 export const GroupsListItem = ({ group }) => {
   const requestToJoin = async () => {
-    await postWithCredentials(`/groups/${group.id}/request`);
+    await postWithCredentials(`/groups/${group.id}/requests`);
     alert('Your request has been submitted');
   };
 
